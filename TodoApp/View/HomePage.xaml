@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TodoApp.View.HomePage"
+             NavigationPage.HasNavigationBar="False">
+  <Grid RowDefinitions="60, *" BackgroundColor="#282727" Padding="12, 0">
+    <StackLayout Grid.Row="0" Orientation="Horizontal" VerticalOptions="Center" >
+      <Label Text="App Agenda" FontSize="Large" FontAttributes="Bold" />
+      <Image Source="add.png"  HeightRequest="40" HorizontalOptions="EndAndExpand">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                Tapped="AddTodo_Tapped"
+                NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+    </StackLayout>
+
+    <ScrollView Grid.Row="1" >
+      <StackLayout Spacing="20" x:Name="ReminderContainer" >
+        <!-- Frame contenedor total -->
+        <Frame HeightRequest="160" Padding="0" CornerRadius="12">
+          <Grid ColumnDefinitions="12, *">
+            <BoxView Grid.Column="0" BackgroundColor="Orange" />
+
+            <!-- Grid contenedor de todo el recordatorio -->
+            <Grid Grid.Column="1" RowDefinitions="4*, *" Padding="0,0,0,12">
+              <!-- Header -->
+              <StackLayout Grid.Row="0" Padding="8,4">
+                <Label Text="TR de App Móviles" TextColor="Black" FontAttributes="Bold" FontSize="Large" />
+
+                <Label Text="Se vence pronto" TextColor="#201F1F" FontSize="Small" />
+              </StackLayout>
+
+              <!-- Body-->
+              <Frame Grid.Row="1" BackgroundColor="#DEDBDB" Padding="12,0" CornerRadius="12" Margin="0,0,8,0">
+                <StackLayout  >
+                  <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" >
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                      <Image Source="calendar.png" HeightRequest="28" />
+                      <Label Text="5/9/2023" TextColor="#6A6A6A" VerticalTextAlignment="Center" FontSize="Small" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="EndAndExpand">
+                      <Image Source="time.png" HeightRequest="24" />
+                      <Label Text="4:45 p. m." TextColor="#6A6A6A" VerticalTextAlignment="Center" FontSize="Small" />
+                    </StackLayout>
+                  </StackLayout>
+                </StackLayout>
+              </Frame>
+            </Grid>
+          </Grid>
+        </Frame>
+        
+        
+        
+      </StackLayout>
+    </ScrollView>
+  </Grid>
+</ContentPage>
